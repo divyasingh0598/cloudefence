@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Menu Form</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./index.js">
+</head>
+
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <h1>+Medicine</h1>
+        </div>
+        <nav>
+          <ul id="MenuItems">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Medicine</a></li>
+            <li><a href="About">Professionals</a></li>
+            <li><a href="Contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="row ">
+        <div class="col-2">
+          <div class="hr1">
+            <h2>Lorem Ipsum is simply</h2>
+            <h4>Dummy test of the printing</h4>
+          </div>
+          <div class="hr2">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. sed do eius mod tempor incididunt ut labore et dolare
+              magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commando viverra maecenas ac cumsan lacus vel facilisis.
+            </p>
+          </div>
+          <div class="hr3">
+            <h1>Give your workout <br>A New Style!</h1>
+          <p>Succes isn't always about greatness. It's about consistency.
+            Consistent hard work gains success. Greatness will come.
+          </p>
+          <a href="" class="btn">Explore Now &#8594;</a>
+          </div>
+          
+        </div>
+        <div class="col-1">
+          <form class="form" id="my-form">
+            <div class="form-group">
+              <label for="username">Name</label>
+              <input type="text" name="name" id="name" value=""/>
+            </div>
+            <span style="color: red;" id="nameError"></span>
+            <div class="form-group">
+              <label for="email" id="email-label">Email</label>
+              <input type="email" name="email" id="email" value=""/>
+            </div>
+            <div >
+            
+              <div class="form-group" id="same-line">
+                <label for="country code">Country Code</label>
+                <input type="text" name="country code" id="country code" />
+                 <div class="form-group" id="same-line"> 
+                  <label for="phone">Phone</label>
+                  <input type="tel" name="phone" id="phone"/>
+                </div>
+               
+              </div>
+              
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <input type="message" name="message" id="message" />
+            </div>
+            <h6>Lorem ipsum dolor sit amet consectetur adipisicing elit. sed do eius mod tempor incididunt ut labore et dolare
+              magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commando viverra maecenas.
+            </h6>
+            <button type="submit" onclick="submitHandler(event)">Send</button>
+          </form>
+        </div>
+      </div>
+      <div>
+        <h1>Menu</h1>
+        <ul id="form-data"></ul>
+      
+      </div>
+    </div>
+  </div>
+  <div>
+    
+    <script>
+  
+      const form = document.getElementById('my-form');
+const formDataList = document.getElementById('form-data');
+
+form.addEventListener('submit', event => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    formDataList.innerHTML = ''; 
+    for (const [name, value] of formData.entries()) {
+      const li = document.createElement('li');
+      li.textContent = `${name}: ${value}`;
+      formDataList.appendChild(li);
+    }
+  });
+    </script>
+  </div>
+</body>
+
+</html>
